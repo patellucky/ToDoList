@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        main{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        body{
+            overflow: hidden;
+        }
+        .btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        margin-right: 20px;
+      }
+      .button {
+        padding: 12px 20px;
+        /* border: none; */
+        border-radius: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        background-color: antiquewhite;
+      }
+    </style>
+</head>
+<body>
+    <main>
+    <table border="4" cellpadding="5" cellspacing="5">
+        <thead>
+            <div class="btn">
+            <a href="/"><button class="button">Add Data</button></a>
+        </div>
+            <th>ID</th>
+            <th>TASK</th>
+            <th>DESCRIPTION</th>
+            <th>TIME EXPIRY</th>
+            <th colspan="2">ACTION</th>
+        </thead>
+        <tbody>
+            <% data.map((val) => { %>
+            <tr>
+                <td><%= val.id %></td>
+                <td><%= val.task %></td>
+                <td><%= val.dsc %></td>
+                <td><%= val.date.split("-").toReversed().join("-") %></td>
+                <td><a href="/delete?id=<%= val.id %>"><button>DELETE</button></a></td>
+                <td><a href="/edit?id=<%= val.id %>"><button>EDIT</button></a></td>
+            </tr>
+            <%})%>
+        </tbody>
+    </table>
+    </main>
+</body>
+</html>

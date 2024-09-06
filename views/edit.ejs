@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO_LIST</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+      }
+      .table {
+        padding: 10px;
+        width: 30%;
+        height: 55%;
+        background-color: aliceblue;
+      }
+      .head {
+        font-size: large;
+        text-align: center;
+        display: block;
+        font-size: 30px;
+      }
+      .in1 {
+        border: none;
+        outline: none;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        text-align: center;
+      }
+      .task {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        text-align: center;
+        font-size: 15px;
+      }
+      textarea::placeholder {
+        padding-top: 25px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      textarea,.date {
+        border: none;
+        outline: none;
+        padding: 8px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+      .dsc ,.date{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .button {
+        padding: 12px 20px;
+        /* border: none; */
+        border-radius: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        background-color: antiquewhite;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <diV class="table">
+        <form action="/edit" method="post">
+            <input type="hidden" name="id" value="<%= editData.id %>">
+          <h1 class="head">TODO LIST</h1>
+          <div class="task">
+            <input
+              type="text"
+              class="in1"
+              placeholder="Task Name"
+              name="task"
+              value="<%= editData.task %>"
+            />
+          </div>
+          <div class="dsc">
+            <textarea
+              cols="22"
+              rows="5"
+              placeholder="DESCRIPTION"
+              name="dsc"
+            ><%= editData.dsc %></textarea>
+          </div>
+          <div class="date">
+            <input type="date" name="date" id=""  value='<%= editData.date %>' class="date" style="margin-top: -15px;">
+          </div>
+          <div class="btn">
+            <input type="submit" name="submit" value="Update" class="button"/>
+        </div>
+
+    </form>
+    <div class="btn" style="margin-top: 8px;">
+    <a href="/show"><button class="button">VIEW</button></a>
+    </div>
+      </diV>
+    </main>
+  </body>
+</html>
